@@ -19,7 +19,7 @@ telegram = TelegramChannel()
 personal_assistant = PersonalAssistant(conn)
 
 # Configuration for the Langgraph checkpoints, specifying thread ID
-config = {"configurable": {"thread_id": "1"}}
+config = {"configurable": {"thread_id": "2"}}
 
 
 def monitor_channel(after_timestamp, config):

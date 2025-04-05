@@ -53,3 +53,6 @@ def get_llm_by_provider(model_string, temperature=0.1):
     else:
         raise ValueError(f"Unsupported LLM provider: {llm_provider}")
     return llm
+
+if __name__ == "__main__":
+    get_credentials()

@@ -34,26 +34,6 @@ class PersonalAssistant:
             temperature=0.1
         )
 
-        self.notion_agent = Agent(
-            name="notion_agent",
-            description="Notion agent can manage Notion including get my todo list and add task in todo list",
-            model="openai/gpt-4o-mini",
-            system_prompt=NOTION_AGENT_PROMPT.format(date_time=get_current_date_time()),
-            tools=[get_my_todo_list, add_task_in_todo_list],
-            sub_agents=[],
-            temperature=0.1
-        )
-
-        self.slack_agent = Agent(
-            name="slack_agent",
-            description="Slack agent can read and send messages through Slack",
-            model="openai/gpt-4o-mini",
-            system_prompt=SLACK_AGENT_PROMPT.format(date_time=get_current_date_time()),
-            tools=[get_slack_messages, send_slack_message],
-            sub_agents=[],
-            temperature=0.1
-        )
-
         self.researcher_agent = Agent(
             name="researcher_agent",
             description="Researcher agent can search the web, scrape websites or LinkedIn profiles",
@@ -74,8 +54,6 @@ class PersonalAssistant:
             sub_agents=[
                 self.email_agent,
                 self.calendar_agent,
-                self.notion_agent,
-                self.slack_agent,
                 self.researcher_agent
             ],
             temperature=0.1,
@@ -89,8 +67,6 @@ class PersonalAssistant:
                 self.manager_agent,
                 self.email_agent,
                 self.calendar_agent,
-                self.notion_agent,
-                self.slack_agent,
                 self.researcher_agent
             ]
         )
